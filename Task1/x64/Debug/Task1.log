@@ -1,0 +1,7 @@
+﻿  trianglecalc.cpp
+C:\loca\include\trianglecalc.cpp(5,18): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+  main.cpp
+C:\loca\Task1\main.cpp(19,2): warning C4305: аргумент: усечение из "double" в "float"
+C:\loca\Task1\main.cpp(20,2): warning C4305: аргумент: усечение из "double" в "float"
+  Создание кода...
+  Task1.vcxproj -> C:\loca\x64\Debug\Task1.exe
