@@ -1,75 +1,77 @@
-﻿#include "arrmethods.h"
-#include "vectmethods.h"
-#include <vector>
+﻿#include "arrmethods.h" // Подключение заголовочного файла для работы с динамическими массивами
+#include "vectmethods.h" // Подключение заголовочного файла для работы с векторами
+#include <vector> // Подключение заголовочного файла для работы с STL-векторами
 
-bool checkVectRandom(std::vector<int> test_vect) { // Вектор test_vect копируется в функцию
+// Функция для проверки заполнения вектора случайными числами
+bool checkVectRandom(std::vector<int> test_vect) { // Вектор test_vect копируется в функцию 
 
-	using namespace vect;
+    using namespace vect; // Подключение пространства имен vect
 
-	arrRandom(test_vect, 0, 0); // Заполнение вектора test_vect 5 элементами со значением 0
-	for (size_t i = 0; i < test_vect.size(); ++i) {
-		if (test_vect[i] != 0) // Проверка, равен ли каждый элемент 0
-			return false;
-	}
+    arrRandom(test_vect, 0, 0); // Заполнение вектора test_vect элементами со значением 0
+    for (size_t i = 0; i < test_vect.size(); ++i) { // Итерация по элементам вектора
+        if (test_vect[i] != 0) // Проверка, равен ли каждый элемент 0
+            return false; // Если хотя бы один элемент не равен 0, возвращаем false
+    }
 
-	arrRandom(test_vect, -5, 5); // Заполнение вектора test_vect 5 элементами со случайным значением от -5 до 5
-	for (size_t i = 0; i < test_vect.size(); ++i) {
-		if ((test_vect[i] < -5) || (test_vect[i] > 5)) // Проверка, входят ли все элементы в диапазон [-5;5]
-			return false;
-	}
+    arrRandom(test_vect, -5, 5); // Заполнение вектора test_vect случайными значениями от -5 до 5
+    for (size_t i = 0; i < test_vect.size(); ++i) { // Итерация по элементам вектора
+        if ((test_vect[i] < -5) || (test_vect[i] > 5)) // Проверка, входят ли все элементы в диапазон [-5;5]
+            return false; // Если хотя бы один элемент не входит в диапазон, возвращаем false
+    }
 
-	return true; // Истина, если проверки пройдены
-
+    return true; // Возвращаем true, если все проверки пройдены
 }
 
+// Функция для проверки вычисления факториалов вектора
 bool checkVectFactorial(std::vector<int> test_vect) {
+    
+    using namespace vect; // Подключение пространства имен vect
 
-	using namespace vect;
+    arrFactorial(test_vect); // Заполнение вектора test_vect факториалами
+    std::vector<int> ref_vect = { 1, 2, 6, 24, 120 }; // Вектор с эталонными значениями факториалов
 
-	arrFactorial(test_vect);
-	std::vector<int> ref_vect = { 1, 2, 6, 24, 120 };
+    for (size_t i = 0; i < test_vect.size(); ++i) { // Итерация по элементам вектора
+        if (test_vect[i] != ref_vect[i]) // Проверка, равен ли элемент вектора соответствующему элементу эталонного вектора
+            return false; // Если нет, возвращаем false
+    }
 
-	for (size_t i = 0; i < test_vect.size(); ++i) {
-		if (test_vect[i] != ref_vect[i])
-			return false;
-	}
-
-	return true;
-
+    return true; // Если все элементы соответствуют, возвращаем true
 }
 
+// Функция для проверки заполнения динамического массива случайными числами
 bool checkArrRandom(int* test_arr, size_t size) {
 
-	using namespace dynarr;
+    using namespace dynarr; // Подключение пространства имен dynarr
 
-	arrRandom(test_arr, size, 0, 0); // Заполнение вектора test_arr 5 элементами со значением 0
-	for (size_t i = 0; i < size; ++i) {
-		if (test_arr[i] != 0) // Проверка, равен ли каждый элемент 0
-			return false;
-	}
+    arrRandom(test_arr, size, 0, 0); // Заполнение массива test_arr элементами со значением 0
+    for (size_t i = 0; i < size; ++i) { // Итерация по элементам массива
+        if (test_arr[i] != 0) // Проверка, равен ли каждый элемент 0
+            return false; // Если хотя бы один элемент не равен 0, возвращаем false
+    }
 
-	arrRandom(test_arr, size, -5, 5); // Заполнение вектора test_arr 5 элементами со случайным значением от -5 до 5
-	for (size_t i = 0; i < size; ++i) {
-		if ((test_arr[i] < -5) || (test_arr[i] > 5)) // Проверка, входят ли все элементы в диапазон [-5;5]
-			return false;
-	}
+    arrRandom(test_arr, size, -5, 5); // Заполнение массива test_arr случайными значениями от -5 до 5
+    for (size_t i = 0; i < size; ++i) { // Итерация по элементам массива
+        if ((test_arr[i] < -5) || (test_arr[i] > 5)) // Проверка, входят ли все элементы в диапазон [-5;5]
+            return false; // Если хотя бы один элемент не входит в диапазон, возвращаем false
+    }
 
-	return true; // Истина, если проверки пройдены
-
+    return true; // Возвращаем true, если все проверки пройдены
 }
 
+// Функция для проверки вычисления факториалов динамического массива
 bool checkArrFactorial(int* test_arr, size_t size) {
 
-	using namespace dynarr;
+    using namespace dynarr; // Подключение пространства имен dynarr
 
-	arrFactorial(test_arr, size);
-	int* ref_arr = new int[5] {1, 2, 6, 24, 120};
+    arrFactorial(test_arr, size); // Заполнение массива test_arr факториалами
+    int* ref_arr = new int[5] {1, 2, 6, 24, 120}; // Создание эталонного массива факториалов
 
-	for (size_t i = 0; i < size; ++i) {
-		if (test_arr[i] != ref_arr[i])
-			return false;
-	}
+    for (size_t i = 0; i < size; ++i) { // Итерация по элементам массива
+        if (test_arr[i] != ref_arr[i]) // Проверка, равен ли элемент массива соответствующему элементу эталонного массива
+            return false; // Если нет, возвращаем false
+    }
 
-	return true;
+    delete[] ref_arr; // Освобождение памяти, выделенной для эталонного массива
 
+    return true; // Если все элементы соответствуют, возвращаем true
 }

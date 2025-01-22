@@ -2,35 +2,35 @@
 #include <cmath>
 #include <iostream>
 
-namespace dynarr {
+namespace dynarr { // Определение пространства имен dynarr для работы с динамическими массивами
 
-	// Процедура заполнения массива случайными числами в заданном диапазоне.
-	void arrRandom(int* arr, size_t size, int min, int max) {
-		for (size_t i = 0; i < size; ++i) {
-			arr[i] = randMinMax(min, max);
-		}
-	}
+    // Процедура заполнения массива случайными числами в заданном диапазоне
+    void arrRandom(int* arr, size_t size, int min, int max) {
+        for (size_t i = 0; i < size; ++i) { // Цикл по всем элементам массива
+            arr[i] = randMinMax(min, max); // Заполнение текущего элемента случайным числом в диапазоне от min до max
+        }
+    }
 
-	// Процедура заполнения массива факториалами
-	void arrFactorial(int* arr, size_t size) {
-		for (int i = 0; i < size; ++i) {
-			if (i == 0) {
-				arr[i] = 1;
-			}
-			else if (i == 1) {
-				arr[i] = 2;
-			}
-			else {
-				arr[i] = arr[i - 1] * (i + 1);
-			}
-		}
-	}
+    // Процедура заполнения массива факториалами
+    void arrFactorial(int* arr, size_t size) {
+        for (int i = 0; i < size; ++i) { // Цикл по всем элементам массива
+            if (i == 0) {
+                arr[i] = 1; // Факториал 0! равен 1
+            }
+            else if (i == 1) {
+                arr[i] = 2; // Факториал 1! равен 1, но здесь записывается 2 (что не совсем корректно)
+            }
+            else {
+                arr[i] = arr[i - 1] * (i + 1); // Вычисление факториала: i! = (i-1)! * i
+            }
+        }
+    }
 
-	// Процедура вывода массива
-	void outputArray(int* arr, size_t size) {
-		for (int i = 0; i < size; ++i) {
-			std::cout << arr[i] << " ";
-		}
-		std::cout << '\n';
-	}
+    // Процедура вывода массива
+    void outputArray(int* arr, size_t size) {
+        for (int i = 0; i < size; ++i) { // Цикл по всем элементам массива
+            std::cout << arr[i] << " "; // Вывод текущего элемента массива, разделенного пробелом
+        }
+        std::cout << '\n'; // Печать новой строки после вывода всех элементов
+    }
 }

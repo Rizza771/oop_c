@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include <vector>
+#include <vector> // Подключение библиотеки для работы с STL-векторами
 
 namespace vect {
 
